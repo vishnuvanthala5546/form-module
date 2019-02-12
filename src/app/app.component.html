@@ -1,35 +1,4 @@
-<nav class="navbar navbar-light" style="background-color: #fda29b;">
-  .
-</nav>
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <!-- Brand -->
-  <a class="navbar-brand" href="javascript:">Angularjs</a>
-
-  <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="javascript:">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="javascript:">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="javascript:">Contact</a>
-      </li>
-    </ul>
-  </div>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</nav>
-
+<app-header></app-header>
 <div class="container">
   <h2>Form Details</h2>
   <div class="row">
@@ -37,27 +6,60 @@
 
       <form (ngSubmit)="onSubmit()" #f="ngForm">
         <div id="user-data">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text"
-                   id="username"
-                   class="form-control"
-                   ngModel
-                   name="username"
-                   required>
+          <div class="form-row">
+            <!-- Default input -->
+            <div class="form-group col-md-6">
+              <label for="fname">First Name:</label>
+              <input type="email"
+                     class="form-control"
+                     id="fname"
+                     placeholder="First Name..."
+                     ngModel
+                     name="fname"
+                     required>
+            </div>
+            <!-- Default input -->
+            <div class="form-group col-md-6">
+              <label for="lname">Last Name:</label>
+              <input type="text"
+                     class="form-control"
+                     id="lname"
+                     placeholder="Last Name..."
+                     ngModel
+                     name="lname"
+                     required>
+            </div>
           </div>
+
+          <div class="form-row">
+            <!-- Default input -->
+            <div class="form-group col-md-6">
+              <label for="email">Email:</label>
+              <input type="email"
+                     id="email"
+                     class="form-control"
+                     ngModel
+                     name="email"
+                     required
+                     email
+                     #email="ngModel"
+                     placeholder="Email id...">
+              <span class="help-block" *ngIf="!email.valid && email.touched">please enter a valid email!</span>
+            </div>
+            <!-- Default input -->
+            <div class="form-group col-md-6">
+              <label for="pass">Password:</label>
+              <input type="password"
+                     class="form-control"
+                     id="pass"
+                     placeholder="Password..."
+                     ngModel
+                     name="password"
+                     required>
+            </div>
+          </div>
+
           <button class="btn btn-outline-secondary" type="button">Suggest an Username</button>
-          <div class="form-group">
-            <label for="email">Mail</label>
-            <input type="email"
-                   id="email"
-                   class="form-control"
-                   ngModel
-                   name="email"
-                   required
-                   email>
-          </div>
-          <p *ngIf="">Please enter valid value!</p>
         </div>
         <div class="form-group">
           <label for="secret">Secret Question</label>
@@ -70,6 +72,19 @@
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
+          <div class="form-group purple-border">
+            <label for="meassage">Message</label>
+            <textarea
+              class="form-control"
+              id="meassage"
+              rows="3"
+              ngModel
+              name="message"
+              required
+              ></textarea>
+            <!--#textarea="ngModel"-->
+            <!--<span class="help-block">please enter a valid message!</span>-->
+          </div>
         <button
           class="btn btn-primary"
           type="submit"
@@ -79,3 +94,5 @@
   </div>
 </div>
 <!--<router-outlet></router-outlet>-->
+<app-footer></app-footer>
+
